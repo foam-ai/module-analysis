@@ -20,10 +20,8 @@ interface ReturnFormat {
  *
  * Usage:
  * 1. Use getTypescriptFiles(directory) to get all TypeScript files in the project
- * 2. Create tools using createGetImportLinesTool(directory)
- * 3. Use OpenAI to analyze module relationships
- * 4. Build the module map structure
- * 5. Save the map using saveMapAsYaml(moduleMap, outputPath)
+ * 2. Use OpenAI to analyze module relationships
+ * 3. Build the module map structure
  *
  * @param directory - The root directory of the TypeScript project
  * @returns A promise that resolves to a ModuleMap object
