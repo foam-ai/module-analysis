@@ -1,0 +1,94 @@
+modules:
+  src/dist.ts:
+    description: >-
+      This file demonstrates how to use the CsvFile class from the 'ts-files' package to read and
+      write CSV files. It reads a CSV file with a header, displays its header, data, and shape, and
+      writes a new CSV file with specified header and data.
+    calling: {}
+    callers: {}
+  src/index.ts:
+    description: >-
+      This file imports the TxtFile class from a utility module, likely for handling operations
+      related to text files such as reading or writing text data.
+    calling: {}
+    callers: {}
+  src/runCsvFile.ts:
+    description: >-
+      This file exports an asynchronous function runCsv that demonstrates reading, writing, and
+      manipulating CSV and JSON data using utility classes CsvFile and JsonFile. It shows how to
+      initialize files, set headers and data, append lines, and write data back to disk. The
+      function also manipulates JSON structures by setting, pushing, and parsing JSON data before
+      writing it to a file.
+    calling: {}
+    callers: {}
+  src/runTxtFile.ts:
+    description: >-
+      This file exports an asynchronous function runTxt that demonstrates creating or initializing a
+      TxtFile object for a sample text file, writing some text to it in a streaming manner, and then
+      reading the file as a stream.
+    calling: {}
+    callers: {}
+  utils/csvFile.ts:
+    description: >-
+      This file defines a CsvFile class for handling CSV files. It provides methods for reading,
+      writing, and manipulating CSV data, including initialization from file paths, reading CSV
+      content into structured arrays, writing CSV data to files, appending data lines, and managing
+      CSV headers. The class also supports chunked writing, data formatting, and CSV parsing with
+      configurable options for delimiters and boolean/number parsing.
+    calling: {}
+    callers: {}
+  utils/env.ts:
+    description: >-
+      This file exports constants for various environment variables used as keys and URLs for RPCs,
+      private keys, addresses, and API keys related to blockchain networks and services. It loads
+      environment variables using dotenv.
+    calling: {}
+    callers: {}
+  utils/error.ts:
+    description: >-
+      This file defines utility error handling classes and functions. It exports two custom error
+      classes (UtilsError and DefaultError) for throwing specific error types. It also provides
+      various helper functions related to error handling and validation, including generating stack
+      traces, catching errors asynchronously, checking and coercing values that are null, undefined,
+      or arrays, and type guards for errors and arrays.
+    calling: {}
+    callers: {}
+  utils/fsStatic.ts:
+    description: >-
+      This file defines a FileStaticMethods class that provides a variety of static utility methods
+      for file system operations, including reading from and writing to files and streams,
+      validating file paths, creating and deleting files and directories, iterating over path
+      components, searching for files within directories, and walking directory trees. It also
+      exports TypeScript types related to file name statuses and nested arrays used in directory
+      walking. The class supports both string and buffer data handling with custom callbacks and
+      supports asynchronous iteration and promise-based usage for modern Node.js file system
+      operations.
+    calling: {}
+    callers: {}
+  utils/index.ts:
+    description: >-
+      This file re-exports entities from several utility modules related to file handling. It
+      imports classes and static methods pertaining to CSV, JSON, and TXT file operations as well as
+      file system static methods, then immediately exports them under their original names. This
+      serves as a centralized entry point for these file utility classes and methods.
+    calling: {}
+    callers: {}
+  utils/jsDocs.ts:
+    description: This file contains a regular expression pattern to match JSDoc comments in code.
+    calling: {}
+    callers: {}
+  utils/jsonFile.ts:
+    description: >-
+      This file defines the JsonFile class which provides methods to read, write, and manipulate
+      JSON files. It includes functionality to parse nested JSON structures, set and push data
+      within the JSON, and handle file encoding. The class also incorporates validation and utility
+      methods for JSON data formatting and splitting text based on delimiters.
+    calling: {}
+    callers: {}
+  utils/txtFile.ts:
+    description: >-
+      This file exports a TxtFile class that provides methods to read and write text files, both
+      synchronously and as streams. It encapsulates file handling functionality including
+      initialization, streaming, and string data management.
+    calling: {}
+    callers: {}
