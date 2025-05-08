@@ -7,11 +7,6 @@ import {
   //getFileContent,
 } from "./utils";
 
-interface ReturnFormat {
-  description: string;
-  modules: Record<string, string>;
-}
-
 /**
  * Creates a module map for a TypeScript project.
  *
