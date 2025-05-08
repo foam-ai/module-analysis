@@ -1,94 +1,76 @@
 modules:
-  src/dist.ts:
+  app/index.ts:
     description: >-
-      This file demonstrates how to use the CsvFile class from the 'ts-files' package to read and
-      write CSV files. It reads a CSV file with a header, displays its header, data, and shape, and
-      writes a new CSV file with specified header and data.
-    calling: {}
+      This file serves as the main entry point for the application, responsible for initializing
+      logging, creating user controller instances, managing users by creating new users, retrieving
+      users by ID, and listing all users.
+    calling:
+      app/user-controller.ts: >-
+        We import UserController to create and manage user entities including creating new users,
+        retrieving existing users, and listing all users.
+      app/log.ts: >-
+        We import Logger to provide logging functionalities for tracking application start, user
+        operations and application shutdown.
     callers: {}
-  src/index.ts:
+  app/log.ts:
     description: >-
-      This file imports the TxtFile class from a utility module, likely for handling operations
-      related to text files such as reading or writing text data.
+      This file defines a logging utility. It provides a LogLevel enumeration to represent different
+      levels of logging severity (DEBUG, INFO, WARN, ERROR). It also defines a Logger class that
+      logs messages with a timestamp, log level, and context. The Logger class has methods for each
+      log level to facilitate categorized logging.
     calling: {}
-    callers: {}
-  src/runCsvFile.ts:
+    callers:
+      app/index.ts: >-
+        We import Logger to provide logging functionalities for tracking application start, user
+        operations and application shutdown.
+      app/user-controller.ts: >-
+        Log.ts provides the Logger class to log informational messages about the user's controller
+        operations.
+      app/user-service.ts: >-
+        This module provides the Logger class used to log info, debug, and warning messages about
+        the user service operations.
+  app/user-controller.ts:
     description: >-
-      This file exports an asynchronous function runCsv that demonstrates reading, writing, and
-      manipulating CSV and JSON data using utility classes CsvFile and JsonFile. It shows how to
-      initialize files, set headers and data, append lines, and write data back to disk. The
-      function also manipulates JSON structures by setting, pushing, and parsing JSON data before
-      writing it to a file.
-    calling: {}
-    callers: {}
-  src/runTxtFile.ts:
+      This file defines the UserController class which acts as an intermediary for user-related
+      operations. It manages user creation, fetching a user by ID, and listing all users, while
+      logging these activities.
+    calling:
+      app/user-service.ts: >-
+        User-service.ts provides the UserService class that contains the core business logic for
+        adding, retrieving, and listing users.
+      app/user.ts: User.ts defines the User model or data structure used throughout the user operations.
+      app/log.ts: >-
+        Log.ts provides the Logger class to log informational messages about the user's controller
+        operations.
+    callers:
+      app/index.ts: >-
+        We import UserController to create and manage user entities including creating new users,
+        retrieving existing users, and listing all users.
+  app/user-service.ts:
     description: >-
-      This file exports an asynchronous function runTxt that demonstrates creating or initializing a
-      TxtFile object for a sample text file, writing some text to it in a streaming manner, and then
-      reading the file as a stream.
-    calling: {}
-    callers: {}
-  utils/csvFile.ts:
+      This file defines a UserService class responsible for managing users, including adding users,
+      retrieving users by id, and getting all users. It also initializes and uses logging for
+      tracking service activity and events.
+    calling:
+      app/user.ts: >-
+        This module provides User and UserImpl which are used for user data modeling and creating
+        new user instances in the service.
+      app/log.ts: >-
+        This module provides the Logger class used to log info, debug, and warning messages about
+        the user service operations.
+    callers:
+      app/user-controller.ts: >-
+        User-service.ts provides the UserService class that contains the core business logic for
+        adding, retrieving, and listing users.
+  app/user.ts:
     description: >-
-      This file defines a CsvFile class for handling CSV files. It provides methods for reading,
-      writing, and manipulating CSV data, including initialization from file paths, reading CSV
-      content into structured arrays, writing CSV data to files, appending data lines, and managing
-      CSV headers. The class also supports chunked writing, data formatting, and CSV parsing with
-      configurable options for delimiters and boolean/number parsing.
+      This file defines a User interface representing the structure of a user object with id, name,
+      email, and isActive status. It also exports a UserImpl class which implements this User
+      interface, providing a constructor to create user instances and a toString method for a string
+      representation of the user.
     calling: {}
-    callers: {}
-  utils/env.ts:
-    description: >-
-      This file exports constants for various environment variables used as keys and URLs for RPCs,
-      private keys, addresses, and API keys related to blockchain networks and services. It loads
-      environment variables using dotenv.
-    calling: {}
-    callers: {}
-  utils/error.ts:
-    description: >-
-      This file defines utility error handling classes and functions. It exports two custom error
-      classes (UtilsError and DefaultError) for throwing specific error types. It also provides
-      various helper functions related to error handling and validation, including generating stack
-      traces, catching errors asynchronously, checking and coercing values that are null, undefined,
-      or arrays, and type guards for errors and arrays.
-    calling: {}
-    callers: {}
-  utils/fsStatic.ts:
-    description: >-
-      This file defines a FileStaticMethods class that provides a variety of static utility methods
-      for file system operations, including reading from and writing to files and streams,
-      validating file paths, creating and deleting files and directories, iterating over path
-      components, searching for files within directories, and walking directory trees. It also
-      exports TypeScript types related to file name statuses and nested arrays used in directory
-      walking. The class supports both string and buffer data handling with custom callbacks and
-      supports asynchronous iteration and promise-based usage for modern Node.js file system
-      operations.
-    calling: {}
-    callers: {}
-  utils/index.ts:
-    description: >-
-      This file re-exports entities from several utility modules related to file handling. It
-      imports classes and static methods pertaining to CSV, JSON, and TXT file operations as well as
-      file system static methods, then immediately exports them under their original names. This
-      serves as a centralized entry point for these file utility classes and methods.
-    calling: {}
-    callers: {}
-  utils/jsDocs.ts:
-    description: This file contains a regular expression pattern to match JSDoc comments in code.
-    calling: {}
-    callers: {}
-  utils/jsonFile.ts:
-    description: >-
-      This file defines the JsonFile class which provides methods to read, write, and manipulate
-      JSON files. It includes functionality to parse nested JSON structures, set and push data
-      within the JSON, and handle file encoding. The class also incorporates validation and utility
-      methods for JSON data formatting and splitting text based on delimiters.
-    calling: {}
-    callers: {}
-  utils/txtFile.ts:
-    description: >-
-      This file exports a TxtFile class that provides methods to read and write text files, both
-      synchronously and as streams. It encapsulates file handling functionality including
-      initialization, streaming, and string data management.
-    calling: {}
-    callers: {}
+    callers:
+      app/user-controller.ts: User.ts defines the User model or data structure used throughout the user operations.
+      app/user-service.ts: >-
+        This module provides User and UserImpl which are used for user data modeling and creating
+        new user instances in the service.

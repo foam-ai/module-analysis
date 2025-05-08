@@ -5,8 +5,7 @@
   "main": "dist/module-map.js",
   "scripts": {
     "test": "jest",
-    "start": "tsx src/example.ts",
-    "example": "tsx src/example.ts",
+    "start": "tsx src/main.ts",
     "type-check": "tsc --noEmit"
   },
   "keywords": [

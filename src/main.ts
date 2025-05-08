@@ -1,10 +1,3 @@
-/**
- * Example usage of the TypeScript Module Map Generator
- *
- * This script demonstrates how to use the TypeScript Module Map Generator
- * to analyze a TypeScript project and generate a module map.
- */
-
 import { createModuleMap } from './module-map';
 import { saveMapAsYaml } from './utils';
 import * as path from 'path';
@@ -16,7 +9,7 @@ async function main() {
   try {
     // Path to one of the cloned repositories
     // Use the ts-pattern directory in the current project
-    const repoPath = path.resolve(__dirname, '../ts-proto');
+    const repoPath = path.resolve(__dirname, '../demoapp');
 
     console.log(`Analyzing TypeScript modules in ${repoPath}...`);
 

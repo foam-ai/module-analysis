@@ -103,8 +103,12 @@ export async function createModuleMap(directory: string): Promise<ModuleMap> {
     const description = moduleDescriptions[file];
     const calls: Record<string, string> = {};
     const callers: Record<string, string> = {};
-    for (const pathPairs in Object.keys(callingReasons)) {
+    console.log('calling reasons', callingReasons);
+    for (const pathPairs of Object.keys(callingReasons)) {
+      console.log('path pairs', pathPairs);
       const [module1, module2] = pathPairs.split("->");
+      console.log('module1', module1);
+      console.log('module2', module2);
       if (module1 === file) {
         calls[module2] = callingReasons[pathPairs];
       } else if (module2 === file) {
